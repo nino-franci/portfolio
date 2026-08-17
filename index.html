@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b12" id="themeColorMeta" />
+  <meta name="description" content="Interaktivni portfolio programerja Nina Francija." id="metaDescription" />
+  <title>Nino Franci — Developer Drive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+  <noscript>
+    <div class="noscript">Za interaktivni del portfolija potrebuješ vključen JavaScript.</div>
+  </noscript>
+
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Nino Franci — Domov" id="brandLink">
+      <span class="brand-dot"></span>
+      <span>NINO<span class="brand-muted">/FRANCI</span></span>
+    </a>
+
+    <div class="topbar-right">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span data-i18n="available">Na voljo za projekte</span>
+      </div>
+
+      <div class="lang-switch" role="group" aria-label="Izbira jezika" id="languageGroup">
+        <button class="lang-option active" type="button" data-lang="sl" aria-pressed="true">SL</button>
+        <button class="lang-option" type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Preklopi na svetlo temo" title="Svetla tema">
+        <span id="themeIcon">☀</span>
+      </button>
+      <button class="icon-btn" id="soundToggle" type="button" aria-label="Vklopi ali izklopi zvok" title="Zvok">
+        <span id="soundIcon">♪</span>
+      </button>
+      <button class="icon-btn" id="helpBtn" type="button" aria-label="Odpri pomoč" title="Pomoč">?</button>
+    </div>
+  </header>
+
+  <main class="game-shell">
+    <section class="hero-copy" aria-label="Uvod" id="heroSection">
+      <p class="eyebrow" data-i18n="eyebrow">INTERAKTIVNI PORTFOLIO / 2026</p>
+      <h1 id="heroTitle">Hej, jaz sem <span>Nino.</span><br>Programiram ideje v stvari, ki delujejo.</h1>
+      <p class="hero-sub" id="heroSubtitle">
+        Namesto klasičnega scrollanja se zapelji skozi moj portfolio.
+        Pelji do označene postaje in pritisni <strong>E</strong> ali gumb <strong>ODPRI</strong>.
+      </p>
+    </section>
+
+    <section class="game-card" aria-label="Interaktivni portfolio zemljevid" id="gameCard">
+      <div class="game-hud">
+        <div class="hud-block">
+          <span class="hud-label" data-i18n="currentMission">TRENUTNA MISIJA</span>
+          <strong id="missionText">Zapeljite do postaje “O MENI”</strong>
+        </div>
+        <div class="hud-block hud-right">
+          <span class="hud-label" data-i18n="explored">RAZISKANO</span>
+          <strong><span id="visitedCount">0</span>/4</strong>
+        </div>
+      </div>
+
+      <div class="world" id="world" tabindex="0" aria-label="Zemljevid. Uporabi puščice ali WASD za vožnjo.">
+        <div class="grid" aria-hidden="true"></div>
+        <div class="glow glow-a" aria-hidden="true"></div>
+        <div class="glow glow-b" aria-hidden="true"></div>
+
+        <div class="road road-h road-1" aria-hidden="true"></div>
+        <div class="road road-h road-2" aria-hidden="true"></div>
+        <div class="road road-v road-3" aria-hidden="true"></div>
+        <div class="road road-v road-4" aria-hidden="true"></div>
+
+        <div class="building b1" aria-hidden="true"><span>01</span></div>
+        <div class="building b2" aria-hidden="true"><span>LAB</span></div>
+        <div class="building b3" aria-hidden="true"><span>NF</span></div>
+        <div class="building b4" aria-hidden="true"><span>DEV</span></div>
+        <div class="building b5" aria-hidden="true"><span>UI</span></div>
+        <div class="building b6" aria-hidden="true"><span>26</span></div>
+
+        <button class="station station-about" data-station="about" type="button">
+          <span class="station-ring"></span>
+          <span class="station-icon">01</span>
+          <span class="station-label">O MENI</span>
+        </button>
+
+        <button class="station station-skills" data-station="skills" type="button">
+          <span class="station-ring"></span>
+          <span class="station-icon">&lt;/&gt;</span>
+          <span class="station-label">ZNANJA</span>
+        </button>
+
+        <button class="station station-projects" data-station="projects" type="button">
+          <span class="station-ring"></span>
+          <span class="station-icon">◆</span>
+          <span class="station-label">PROJEKTI</span>
+        </button>
+
+        <button class="station station-contact" data-station="contact" type="button">
+          <span class="station-ring"></span>
+          <span class="station-icon">@</span>
+          <span class="station-label">KONTAKT</span>
+        </button>
+
+        <div class="car" id="car" aria-label="Porsche 911 GT3 RS">
+          <div class="car-shadow"></div>
+          <img
+            class="car-image"
+            src="assets/porsche-911-gt3-rs-top.png"
+            alt="Porsche 911 GT3 RS pogled od zgoraj"
+            draggable="false"
+            id="carImage"
+          />
+        </div>
+
+        <div class="proximity" id="proximityPrompt" aria-live="polite">
+          <span id="proximityText">Postaja dosežena</span>
+          <button id="openStationBtn" type="button"><span data-i18n="open">ODPRI</span> <kbd>E</kbd></button>
+        </div>
+
+        <div class="speedometer" aria-hidden="true">
+          <span class="speed-label">SPEED</span>
+          <strong id="speedValue">0</strong>
+          <span class="speed-unit">px/s</span>
+        </div>
+
+        <div class="mini-map" aria-hidden="true">
+          <span class="mini-dot m1"></span>
+          <span class="mini-dot m2"></span>
+          <span class="mini-dot m3"></span>
+          <span class="mini-dot m4"></span>
+          <span class="mini-car" id="miniCar"></span>
+        </div>
+      </div>
+
+      <div class="controls-wrap">
+        <div class="control-help">
+          <span id="driveHelp"><kbd>WASD</kbd> ali <kbd>← ↑ ↓ →</kbd> za vožnjo</span>
+          <span id="openHelp"><kbd>E</kbd> odpre bližnjo postajo</span>
+        </div>
+
+        <div class="mobile-controls" aria-label="Kontrole za vožnjo" id="mobileControls">
+          <button class="drive-btn up" data-key="up" type="button" aria-label="Gor">↑</button>
+          <button class="drive-btn left" data-key="left" type="button" aria-label="Levo">←</button>
+          <button class="drive-btn down" data-key="down" type="button" aria-label="Dol">↓</button>
+          <button class="drive-btn right" data-key="right" type="button" aria-label="Desno">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-nav" aria-label="Hitra navigacija" id="quickNav">
+      <span data-i18n="dontDrive">Ne želiš voziti?</span>
+      <div class="quick-links">
+        <button data-open="about" type="button">O meni</button>
+        <button data-open="skills" type="button">Znanja</button>
+        <button data-open="projects" type="button">Projekti</button>
+        <button data-open="contact" type="button">Kontakt</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <article class="modal" id="contentModal" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Zapri">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <div class="modal-backdrop" id="helpBackdrop" hidden>
+    <article class="modal help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+      <button class="modal-close" id="helpClose" type="button" aria-label="Zapri">×</button>
+      <p class="modal-kicker" data-i18n="howToPlay">KAKO IGRATI</p>
+      <h2 id="helpTitle">Preprost portfolio. Malo manj preprosta pot do njega.</h2>
+      <div class="help-grid">
+        <div><span class="help-key">WASD</span><p data-i18n="helpDrive">Vozi po zemljevidu.</p></div>
+        <div><span class="help-key">E</span><p data-i18n="helpOpen">Odpri sekcijo, ko si dovolj blizu.</p></div>
+        <div><span class="help-key">ESC</span><p data-i18n="helpEsc">Zapri odprto sekcijo.</p></div>
+      </div>
+      <p class="help-note" data-i18n="helpNote">Na telefonu uporabi smerne gumbe pod zemljevidom. Če se ti ne da igrati, so spodaj tudi klasične bližnjice.</p>
+    </article>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
