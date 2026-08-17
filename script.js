@@ -276,8 +276,7 @@ const stationText = {
             <span class="project-index">03 / SECURITY + 3D</span>
             <strong>Prijava z obrazom in Blender</strong>
             <p>Aplikaciji smo dodali prijavo z obrazom. Za zaključek projekta smo pripravili tudi predstavitveno animacijo v Blenderju.</p>
-            <div class="project-tags"><span>Face login</span><span>Blender</span><span>3D</span></div>
-            <a class="project-link" href="https://beoflere.com/projekt-feri/" target="_blank" rel="noopener noreferrer">Odpri projekt ↗</a>
+            <div class="project-tags"><span>Face login</span><span>Blender</span><span>3D</span></div>     
           </article>
         </div>
       `
@@ -304,10 +303,7 @@ const stationText = {
             <strong>Lokacija</strong>
             <span>Maribor, Slovenija</span>
           </div>
-          <a class="contact-card" href="https://beoflere.com/projekt-feri/" target="_blank" rel="noopener noreferrer">
-            <strong>FERI projekt</strong>
-            <span>beoflere.com/projekt-feri</span>
-          </a>
+          
         </div>
       `
     }
@@ -433,8 +429,7 @@ const stationText = {
             <span class="project-index">03 / SECURITY + 3D</span>
             <strong>Face login and Blender</strong>
             <p>We added face login to the application. To conclude the project, we also created a presentation animation in Blender.</p>
-            <div class="project-tags"><span>Face login</span><span>Blender</span><span>3D</span></div>
-            <a class="project-link" href="https://beoflere.com/projekt-feri/" target="_blank" rel="noopener noreferrer">Open project ↗</a>
+            <div class="project-tags"><span>Face login</span><span>Blender</span><span>3D</span></div>           
           </article>
         </div>
       `
@@ -461,10 +456,7 @@ const stationText = {
             <strong>Location</strong>
             <span>Maribor, Slovenia</span>
           </div>
-          <a class="contact-card" href="https://beoflere.com/projekt-feri/" target="_blank" rel="noopener noreferrer">
-            <strong>FERI project</strong>
-            <span>beoflere.com/projekt-feri</span>
-          </a>
+          
         </div>
       `
     }
