@@ -445,6 +445,7 @@ a:focus-visible,
 .car-image {
   position: absolute;
   inset: 0;
+  transform: rotate(180deg);
   display: block;
   width: 100%;
   height: 100%;
